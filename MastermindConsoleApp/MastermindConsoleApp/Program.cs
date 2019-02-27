@@ -7,7 +7,7 @@ namespace MastermindConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hi, are you up for some Mastermind fun?");
 
             Game game = new Game();
 

@@ -39,9 +39,14 @@ namespace MastermindConsoleApp.Models
 
         public void PlayTheGame()
         {
+            List<CodePeg> copiedCodePegsPlayer1 = new List<CodePeg>(codePegsPlayer1);
+
             while (true)
             {
-                copiedCodePegsPlayer1 = codePegsPlayer1;
+                copiedCodePegsPlayer1.Clear();
+                copiedCodePegsPlayer1 = codePegsPlayer1.ToList();
+                // = new List<CodePeg>(codePegsPlayer1);
+                //copiedCodePegsPlayer1 = codePegsPlayer1;
                 codePegsPlayer2.Clear();
 
                 Console.WriteLine("Enter four-color guess; R for Red, G for Green, C for Cyan, Y for Yellow, B for Black, W for White)\n" +
