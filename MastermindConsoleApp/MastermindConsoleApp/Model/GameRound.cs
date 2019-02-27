@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace MastermindConsoleApp.Model
 {
@@ -20,6 +19,17 @@ namespace MastermindConsoleApp.Model
         {
             var result = AssessGameRound(codePegsPlayer1ForGameRound, codePegsPlayer2ForGameRound);
             Console.WriteLine("Round Assessment: /n red key: " + result[0] + "x" + "/n white key: " + result[1] + "x");
+            if (result[0] == 4)
+            {
+                Console.WriteLine("You got the combination right and the game is over. I hope you enjoyed the Mastermind;-)" +
+                    "\n To exit press q.");
+                string quit = Console.ReadLine();
+
+                if (quit.Equals("q"))
+                {
+                    Environment.Exit(0);
+                }
+            }
 
         }
 

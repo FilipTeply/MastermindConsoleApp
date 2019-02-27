@@ -15,14 +15,9 @@ namespace MastermindConsoleApp.Models
         public Game()
         {
             codePegsPlayer1 = GenerateCodePegsPlayer1();
-            copiedCodePegsPlayer1 = codePegsPlayer1;
+            //copiedCodePegsPlayer1 = codePegsPlayer1;
             codePegsPlayer2 = new List<CodePeg>();
-
         }
-
-        //GameRound gameRound1 = new GameRound(new List<CodePeg> { CodePeg.B, CodePeg.W, CodePeg.W, CodePeg.W },
-        //                              new List<CodePeg> { CodePeg.W, CodePeg.W, CodePeg.W, CodePeg.B });
-
 
         public List<CodePeg> GenerateCodePegsPlayer1()
         {
@@ -40,19 +35,19 @@ namespace MastermindConsoleApp.Models
         public void PlayTheGame()
         {
             List<CodePeg> copiedCodePegsPlayer1 = new List<CodePeg>(codePegsPlayer1);
+            string letterCodedCodePegsPlayer2 = "";
+            Console.WriteLine("Enter four-color guess; R for Red, G for Green, C for Cyan, Y for Yellow, B for Black, W for White)\n" +
+                   "eg. RCRW ");
 
             while (true)
             {
                 copiedCodePegsPlayer1.Clear();
                 copiedCodePegsPlayer1 = codePegsPlayer1.ToList();
-                // = new List<CodePeg>(codePegsPlayer1);
-                //copiedCodePegsPlayer1 = codePegsPlayer1;
-                codePegsPlayer2.Clear();
 
-                Console.WriteLine("Enter four-color guess; R for Red, G for Green, C for Cyan, Y for Yellow, B for Black, W for White)\n" +
-                    "eg. RCRW ");
-
-                string letterCodedCodePegsPlayer2 = Console.ReadLine();
+                Console.WriteLine("Your last guess was: " + letterCodedCodePegsPlayer2);
+                codePegsPlayer2.Clear();                             
+            
+                letterCodedCodePegsPlayer2 = Console.ReadLine();
                 List<string> stringlist = new List<string>(letterCodedCodePegsPlayer2.Select(c => c.ToString()));
 
                 foreach (string str in stringlist)
